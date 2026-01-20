@@ -6,6 +6,11 @@ const arrows = document.querySelectorAll(".Slider-Button");
 const pagination = document.querySelector(".Banner-Slider-Pagination");
 const curruntPage = pagination.firstElementChild;
 
+// 찜 버튼
+const likeButtons = document.querySelectorAll(".like-Button");
+
+// ---------- 배너 부분 ----------
+// 배너 순서용 값
 let count = 1;
 
 firstBanner.innerHTML = `
@@ -18,11 +23,13 @@ lastBanner.innerHTML = `
     4
     <img src="../../static/images/haetsal-jangteo-logo.svg" alt="">
 </a>`;
+
 bannerWrapper.appendChild(firstBanner);
 bannerWrapper.prepend(lastBanner);
 
 bannerWrapper.style.transform = `translate(-766px)`;
 curruntPage.innerHTML = `${count} `;
+curruntPage.style.marginRight = "3px";
 
 const autoSlide = () => {
     count++;
@@ -61,7 +68,7 @@ arrows.forEach((arrow) => {
 
             if (count === 0) {
                 setTimeout(() => {
-                    bannerWrapper.style.transform = `translate(-3,064px)`;
+                    bannerWrapper.style.transform = `translate(-3064px)`;
                     bannerWrapper.style.transition = `transform 0s`;
                 }, 500);
                 count = 4;
@@ -90,3 +97,34 @@ arrows.forEach((arrow) => {
         }, 500);
     });
 });
+// ------------------------------------------
+
+// ----- 찜 버튼 부분 -----------------------
+// 찜 버튼 누르기 기능
+likeButtons.forEach((like) => {
+    like.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        e.currentTarget.classList.toggle("is-active");
+
+        // DB에서 찜 관련 값 받아와야 함.
+        const isLiked = e.currentTarget.classList.contains("is-active");
+
+        // 찜 추가 / 해제 로직
+        if (!isLiked) {
+            // 찜 추가 로직 넣어야 함
+        } else {
+            // 찜 해제 로직 넣어야 함
+        }
+    });
+});
+// -----------------------------------------
+
+// 상품 받아오기
+const getItems = async () => {};
+
+// 상품 뿌리기
+const fetchItems = (items) => {};
+
+// 인기 카테고리 상품 뿌리기
+const fetchBestCateItems = (items) => {};

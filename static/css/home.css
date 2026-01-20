@@ -213,6 +213,7 @@ audio, canvas, embed, iframe, img, object, svg, video {
 .CardList-Section {
     margin: 0px;
     padding: 0px;
+    column-gap: 60px;
     list-style: none;
     display: flex;
     flex-wrap: wrap;
@@ -223,7 +224,7 @@ audio, canvas, embed, iframe, img, object, svg, video {
 .Card-Container {
     padding-bottom: 40px !important;
     width: 25%;
-    padding: 0px 7px;
+    padding: 0px 7px 0px 0px;
 }
 
 .Card-Wrapper {
@@ -287,6 +288,13 @@ audio, canvas, embed, iframe, img, object, svg, video {
     bottom: 2px;
     right: 2px;
 }
+
+/* 찜 버튼 토글 css */
+.like-fill { display: none; }
+.like-empty { display: block; }
+
+.like-Button.is-active .like-empty { display: none; }
+.like-Button.is-active .like-fill { display: block; }
 
 .Card-Info-Container {
     position: relative;
@@ -454,6 +462,27 @@ audio, canvas, embed, iframe, img, object, svg, video {
     line-height: 20px !important;
 }
 
+.BestCategory-Link {
+    display: flex;
+    width: 233px;
+    height: 44px;
+    margin: 36px auto 0px;
+    border: 1px solid rgb(228, 228, 228);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 8px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 22px;
+    color: rgb(61, 61, 61);
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+}
+
+.BestCategory-Link:hover {
+    color: rgb(61, 61, 61);
+    background: rgb(240, 240, 240);
+}
+
 /* 우측 인기 카테고리 상품 카드 목록 부분 */
 .BestCategory-ItemCard-Container {
     width: 100%;
@@ -557,6 +586,35 @@ audio, canvas, embed, iframe, img, object, svg, video {
     font-weight: bold;
     line-height: 120%;
     color: rgb(235, 75, 56);
+}
+
+/* 메인 주제별 상품 리스트 부분 */
+.MainContent-Component {
+    position: relative;
+    display: flex;
+    max-width: 1160px;
+    width: 100%;
+    margin: 0px auto 40px;
+    margin-bottom: 60px;
+    padding: 48px 0px 0px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.ContentInfo-Wrapper {
+    width: 300px;
+
+}
+
+.ContentInfo-Thumbnail {
+    
+}
+
+.ContentList-Wrapper {
+    position: relative;
+    width: 764px;
+    padding: 0xp;
+    margin-bottom: 0px;
 }
 
 /* 푸터 추가 css */
