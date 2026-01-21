@@ -5,22 +5,22 @@ const firstBanner = document.createElement("div");
 const lastBanner = document.createElement("div");
 const arrows = document.querySelectorAll(".Slider-Button");
 const pagination = document.querySelector(".Banner-Slider-Pagination");
-const curruntPage = pagination.firstElementChild;
+const curruntPage = pagination?.firstElementChild;
 
 // ---------- 배너 부분 ----------
 // 배너 순서용 값
 let count = 1;
 
 firstBanner.innerHTML = `
-<a href="" class="Banner-Content-Link">
-    1
-    <img src="../../static/images/haetsal-jangteo-logo.svg" alt="">
-</a>`;
+    <a href="" class="Banner-Content-Link">
+        1
+        <img src="../../static/images/haetsal-jangteo-logo.svg" alt="">
+    </a>`;
 lastBanner.innerHTML = `
-<a href="" class="Banner-Content-Link">
+    <a href="" class="Banner-Content-Link">
     4
     <img src="../../static/images/haetsal-jangteo-logo.svg" alt="">
-</a>`;
+    </a>`;
 
 bannerWrapper.appendChild(firstBanner);
 bannerWrapper.prepend(lastBanner);
