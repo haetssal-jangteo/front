@@ -78,8 +78,6 @@
     src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css') format('font-woff2');
 }
 
-
-
 html {
     scrollbar-gutter: stable;
     line-height: 1.5;
@@ -87,6 +85,13 @@ html {
     font-family: sans-serif;
     font-variation-settings: normal;
     overflow-y: scroll;
+}
+
+*,
+:after,
+:before {
+    border: 0 solid #e5e7eb;
+    box-sizing: border-box;
 }
 
 body {
@@ -113,31 +118,40 @@ button {
     padding: 0;
 }
 
+.page-container button {
+    outline: 0;
+}
+
 .region-icon img {
     width: 25px;
     height: 25px;
 }
 
-*,
-:after,
-:before {
-    border: 0 solid #e5e7eb;
-    box-sizing: border-box;
-}
-
-.container {
-    max-width: 1160px;
-    margin: 0px auto;
-    box-sizing: border-box;
-    width: 100%;
+.full-view {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    height: 100%;
 }
 
 .category-container {
     max-width: 1160px;
+    margin: 0px auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    max-width: 1160px;
+    background: rgb(255, 255, 255);
+    user-select: none; 
+}
+
+.category-wrapper {
+    max-width: 1160px;
     width: 100%;
     position: relative;
     padding: 20px 0px;
-    margin-bottom: 10px;
 }
 
 .region-list {
@@ -157,26 +171,19 @@ button {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 70px;
+    height: 80px;
     padding: 0px 3px;
     cursor: pointer;
     width: 63px;
     border: 1px solid #e4e4e4;
     border-radius: 16px;
-    transition: all 0.3s 0s;
 }
 
 .category-each-box:hover,
-.market-category:hover,
+.filter:hover,
 .dropdown-market:hover {
     background-color: #FFB74D !important;
     border-color: #FFB74D !important;
-}
-
-.selected {
-    background-color: blanchedalmond;
-    border-color: blanchedalmond;
-    font-weight: 600;
 }
 
 .region-text {
@@ -196,11 +203,6 @@ button {
     align-items: center;
 }
 
-.tab-name {
-    font-size: 14px;
-    font-weight: 500;
-}
-
 .tab-arrow {
     font-size: 10px;
     color: #8c8c8c;
@@ -208,77 +210,189 @@ button {
     transition: all 0.3s 0s;
 }
 
+.page-container {
+    background: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(245, 245, 245);
+    padding: 0px 0px 40px;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    font-weight: 400;
+    color: #3d3d3d;
+}
+
 .divider-wrapper {
+    max-width: 1160px;
     margin: 0px auto;
     display: flex;
     width: 100%;
-    align-items: flex-start;
+    align-items: center;
     justify-content: flex-start;
 }
 
 .divider {
-    padding: 0px 1%;
-    margin: 0px 0px 10px;
+    max-width: 1160px;
+    padding: 0px;
+    position: relative;
+    margin: 20px 0px 0px;
     display: flex;
     width: 100%;
+    align-items: center;
     justify-content: flex-start;
-    flex-direction: column;
 }
 
-.selected-region-in-divider {
+.current-region-market {
     display: flex;
     font-weight: bold;
-    font-size: 26px;
-    font-family: inherit;
-    color: #37474F;
-    padding: 0px 0px 20px;
+    font-size: 18px;
+    line-height: 28px;
+    color: rgb(13, 13, 13);
 }
 
-.count-orderby-button-box {
-    display: flex;
+.filter-container {
+    background: rgb(255, 255, 255);
+    box-sizing: border-box;
     position: relative;
 }
 
-.market-count span {
-    font-size: 13px;
-    font-weight: 600;
-    font-family: inherit;
-    color: #37474F;
+.filter-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    width: 1160px;
+    margin: 0px auto;
+    position: relative;
+    padding: 0px !important;
+}
+
+.filter-box {
+    margin-top: 24px;
+    width: 100%;
+    position: relative;
+}
+
+.filter-options {
+    display: flex;
+    align-items: center;
+    flex: 9 1 0%;
+    width: 100%;
+    height: 100%;
+}
+
+.filter-btns {
+    padding-left: 0px;
+    display: flex;
+    gap: 10px;
+    scrollbar-width: none;
+}
+/* 이름짓기 */
+.filter-btn {
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 120%;
+    display: flex;
+    height: 36px;
+    padding: 9.5px 12px;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(28, 28, 28);
+}
+
+.svg-inmedia {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+}
+
+.dropdown-filter {
+    position: relative;
+    cursor: pointer;
+}
+
+.dropdown-filter.clicked .dd-filter-box {
+    display: block;
+} 
+
+.dd-filter-box {
+    position: absolute;
+    display: none;
+    z-index: 999;
+    background: white;
+    padding: 0px;
+    margin: 0px;
+    top: 42px;
+    list-style: none;
+    width: 140px;
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    border: 1px solid rgb(240, 240, 240);
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 8px, rgba(0, 0, 0, 0.1) 0px 1px 0px;
+}
+
+.dd-filter-item {
+    display: flex;
+    align-items: center;
+    border: none;
+    background: rgb(255, 255, 255);
+    color: rgb(61, 61, 61);
+    font-weight: 400;
+    padding: 0px 0px 0px 19px;
+    width: 100%;
+    height: 44px;
+    font-size: 14px !important;
+    line-height: 24px !important;
+}
+
+.filter-text {
+    display: flex;
+    gap: 4px;
+    flex-direction: row;
+    /* white-space: nowrap; */
+}
+
+.dropdown-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.arrow-svg {
+    cursor: pointer;
+    width: 14px;
+    height: 14px;
+    transition: all 0.2s 0s;
 }
 
 .orderby-box {
-    /* display: flex; */
-    /* width: 70px;
-    height: 27px;
-    padding: 7px 5px;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer; */
     position: absolute;
     right: 0px;
-    bottom: -18px;
+    bottom: -37px;
     z-index: 1;
+}
+
+.orderby-box.clicked .filter-combobox {
+    display: flex;
 }
 
 .orderby {
     position: relative;
-
 }
 
 .combobox-opener {
-    display: inline-block;
-    font-weight: bold;
     font-size: 16px;
+    font-weight: bold;
     line-height: 27px;
-    background: transparent;
-    text-align: center;
-    box-sizing: border-box;
-    min-width: auto;
+    z-index: auto;
     color: rgb(61, 61, 61);
-    height: inherit;
+    line-height: 24px;
     border: none;
-    border-radius: 0px;
-    padding: 0px;
 }
 
 .combobox-opener span {
@@ -297,6 +411,7 @@ button {
     width: 8px !important;
     height: 100% !important;
     margin: 0px !important;
+    transition: all 0.2s 0s;
 }
 
 .combobox-arrow::before {
@@ -312,8 +427,8 @@ button {
     line-height: 34px;
 }
 
-.filter-combo:hover {
-    background: rgb(245, 245, 245);
+.filter-combo:hover, .dd-filter-item:hover {
+    background: rgb(241, 241, 241);
 }
 
 .selected-filter {
@@ -340,33 +455,38 @@ button {
     line-height: 34px;
 }
 
-.market-category-wrapper {
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: flex-start;
-    gap: 10px;
+.content-container {
+    margin-bottom: 0px;
+    min-height: 150px;
+    width: 1160px;
+    margin: 0px auto;
+    position: relative;
+    height: auto;
 }
 
-/* 축산물 농산물 등등으로 분류버튼 */
-.market-category {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 3px 5px;
-    cursor: pointer;
-    border: 1px solid #e4e4e4;
-    border-radius: 16px;
-    transition: all 0.3s 0s;
-    min-width: 66px;
-    height: 30px;
-    width: 80px;
-    margin-top: 20px;
-    font-size: 13px;
-    text-align: center;
+.content-wrapper {
+    color: rgb(51, 51, 51);
+    position: relative;
 }
 
-.page-wrapper {
+.count-contents {
     width: 100%;
+    font-size: 16px;
+    line-height: 27px;
+    margin: 0px auto;
+    padding: 16px 20px 12px 0px;
+    color: rgb(61, 61, 61);
+    letter-spacing: -0.08px;
+    z-index: 0;
+    position: relative;
+}
+
+.count-contents span {
+    color: rgb(255, 87, 87);
+}
+
+.card-list-wrapper {
+    width: auto;
     display: flex;
     margin: 0px -10px;
     justify-content: flex-start;
@@ -508,7 +628,6 @@ button {
     border-radius: 4px;
     padding: 4px 0px;
     color: rgb(61, 61, 61);
-    top: 35px;
     left: auto;
     right: 0px;
 }
@@ -522,12 +641,12 @@ button {
     border-radius: 8px;
     border: 1px solid #e4e4e4;
     width: 310px;
-    top: 120%;
+    top: 105%;
     left: 0;
     background-color: #ffffff;
     gap: 8px;
     padding: 8px;
-    z-index: 99;
+    z-index: 100;
 }
 
 .dropdown-market {
@@ -542,7 +661,7 @@ button {
     border: 1px solid #e4e4e4;
 }
 
-.dropdown-market.selected {
+.category-each-box.selected, .dropdown-market.selected, .filter-btn.selected {
     background-color: blanchedalmond;
     border-color: blanchedalmond;
     font-weight: 600;
@@ -558,16 +677,14 @@ button {
     border-color: #FFB74D;
 }
 
-.category-each-box.clicked .name-arrow-box .tab-arrow {
+.category-each-box.clicked .tab-arrow, 
+.dropdown-filter.clicked .dropdown-arrow svg,
+.orderby-box.clicked .combobox-arrow {
     transform: rotate(180deg);
 }
 
 .tab-button {
     cursor: default;
-}
-
-.filter-combobox.clicked {
-    display: flex;
 }
 
 div.modal {
