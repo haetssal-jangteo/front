@@ -1,3 +1,14 @@
+@keyframes Spectrum-Circle-Container-rotate {
+    0% { transform: rotate(-90deg); }
+    100% { transform: rotate(270deg); }
+}
+
+@keyframes Spectrum-Circle-Fill-rotate1 {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(180deg); }
+    100% { transform: rotate(360deg); }
+}
+
 a, div {
     text-decoration: none;
 }
@@ -447,4 +458,123 @@ button[name=c-category] {
 .delivery {
     color: rgb(255, 255, 255);
     background-color: rgb(121, 136, 255);
+}
+
+/* 빈 상품 카드 부분 */
+.gray {
+    background: linear-gradient(90deg, rgb(240, 240, 240) 25%, rgb(224, 224, 224) 50%, rgb(240, 240, 240) 75%) 0% 0% / 200% 100%;
+    border-radius: 4px;
+}
+
+.SkeletonCard-Wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-width: 136px;
+}
+
+.SkeletonCard-Image {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex: 0 0 auto;
+    aspect-ratio: 1 / 1;
+    border-radius: 8px;
+}
+
+.SkeletionCard-Content {
+    width: 100%;
+    margin-top: 8px;
+    margin-left: 0px;
+    padding: 0px 4px;
+}
+
+.SkeletionCard-MarketInfo {
+    width: 30%;
+    height: 16px;
+    margin-bottom: 4px;
+}
+
+.SkeletionCard-Title {
+    width: 100%;
+    height: 20px;
+    margin-bottom: 4px;
+}
+
+.SkeletionCard-Percent {
+    width: 40%;
+    height: 16px;
+}
+
+/* 최하단 로딩 프로세스 부분 */
+.LoadingProcess-Wrapper {
+    display: none;
+    width: 100%;
+    justify-content: center;
+    margin: 32px 0px;
+}
+
+.LoadingProcess-InnerWrapper {
+    position: relative;
+}
+
+.LoadingProcess-Container {
+    position: relative;
+}
+
+.Spectrum-Circle-Track {
+    box-sizing: border-box;
+    border-radius: 100%;
+    border-style: solid;
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
+    border-color: rgb(228, 228, 228);
+}
+
+.Spectrum-Circle-Fills {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    animation: 1s cubic-bezier(0.25, 0.78, 0.48, 0.89) 0s infinite normal none running Spectrum-Circle-Container-rotate;
+    transform-origin: center center;
+}
+
+.Spectrum-Circle-FillMask1, .Spectrum-Circle-FillMask2 {
+    position: absolute;
+    width: 50%;
+    height: 100%;
+    transform-origin: 100% center;
+    transform: rotate(180deg);
+    overflow: hidden;
+}
+
+.Spectrum-Circle-FillSubMask1, .Spectrum-Circle-FillSubMask2 {
+    width: 100%;
+    height: 100%;
+    transform-origin: 100% center;
+    overflow: hidden;
+}
+
+.Spectrum-Circle-FillSubMask1 {
+    will-change: transform;
+    animation: 1s linear 0s infinite normal none running Spectrum-Circle-Fill-rotate1;
+}
+
+.Spectrum-Circle-FillSubMask1 {
+    will-change: transform;
+    animation: 1s linear 0s infinite normal none running Spectrum-Circle-Fill-rotate2;
+}
+
+.Spectrum-Circle-Fill {
+    box-sizing: border-box;
+    border-style: solid;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    border-width: 4px;
+    border-color: rgb(109, 109, 109);
 }
