@@ -345,6 +345,21 @@ button[name=c-category] {
     max-width: 100%;
 }
 
+.like-Button {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: 0px;
+    background: none;
+    border: none;
+    width: 60px;
+    height: 60px;
+    bottom: 2px;
+    right: 2px;
+    cursor: pointer;
+}
+
 .ItemCard-Content {
     position: relative;
     display: flex;
@@ -428,6 +443,43 @@ button[name=c-category] {
     margin-top: 8px;
     border-radius: 3px;
     background-color: rgb(255, 87, 87);
+}
+
+.ItemCard-ButtonWrapper {
+    display: flex;
+    width: 100%;
+    margin-top: 10px;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.ItemCard-Button {
+    width: 100%;
+    height: auto;
+    font-size: 15px;
+    background-color: white;
+    padding: 12px 0px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.DeliTracking, .ReviewWrite, .ReviewCheck {
+    border: 1px solid rgb(109, 109, 109);
+    color: rgb(109, 109, 109);
+}
+
+.DeliTracking:hover, .ReviewWrite:hover, .ReviewCheck:hover {    background-color: rgb(109, 109, 109);
+    color: white;
+}
+
+.Cancle {
+    border: 1px solid rgb(255, 87, 87);
+    color: rgb(255, 87, 87);
+}
+
+.Cancle:hover {
+    background-color: rgb(255, 87, 87);
+    color: white;
 }
 
 /* 뱃지 관련 */
