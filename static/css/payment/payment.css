@@ -522,6 +522,7 @@ blockquote, dd, dl, fieldset, figure, h1, h2, h3, h4, h5, h6, hr, p, pre {
     width: 100%;
     margin: 16px 0px;
     text-align: left;
+
 }
 table {
     border-collapse: collapse;
@@ -555,7 +556,7 @@ table {
     padding-right: 20px; 
     vertical-align: top; 
     text-align: left; 
-    padding: 4px 0px 4px 16px; 
+    padding: 4px 0px 4px 20px !important; 
      
     
 }
@@ -773,21 +774,593 @@ td {
 } */
 
 
-/*이름: 홍길동*/
+/*주문자 정보*/
+
+.eeBRDs table tbody th{
+    padding-top: 20px;   /* 1000px 말고 테스트는 20px */
+}
+
 .gOKAJS td {
     color: rgb(109, 109, 109) !important;
 }
+.eeBRDs table {
+    table-layout: fixed;
+}
+
 .eeBRDs table tbody th {
-        width: 138px;
+        width: 98px;
         padding-left: 20px;
     }
 .eeBRDs table tbody th {
-    width: 98px;
+    width: 138px; 
     vertical-align: top;
     text-align: left;
     padding: 4px 0px 4px 16px;
 }
 
-.eeBRDs table tbody th.name {
-    font-size: 16px 
+/**/
+
+.eeBRDss table tbody th{
+    padding-top: 20px;   /* 1000px 말고 테스트는 20px */
+}
+
+
+.eeBRDss table {
+    table-layout: fixed;
+}
+
+.eeBRDss table tbody th {
+        width: 98px;
+        padding-left: 20px;
+    }
+.eeBRDss table tbody th {
+    width: 138px; 
+    vertical-align: top;
+    text-align: left;
+    padding: 20px 0px 20px 16px !important;
+}
+
+
+
+/*배송지 정보*/
+.ekGljb {
+    flex-flow: row;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 20px;
+}
+.eTColg {
+    width: 83px;
+    flex: 0 0 auto;
+    width: 118px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.21px;
+}
+.laIreb {
+    flex-flow: row;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex: 1 1 auto;
+}
+.ekGljb {
+    flex-flow: row;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 10px 20px;
+    display: flex;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    width: 100%;
+}
+.dAbsoZ {
+    margin-bottom: 0px !important;
+    flex: 1 1 auto;
+}
+.iwwFWX {
+    font-weight: 400;
+    color: rgb(109, 109, 109);
+    font-size: 14px !important;
+    line-height: 24px !important;
+}
+
+#selected-domain-2{
+    margin: 10px 0px 0px 0px ;
+}
+/*결제 수단*/
+
+.NLrsy .container > div:last-of-type {
+    border-bottom: 0px;
+    margin: 0px;
+}
+.BgVfT .container > div:last-of-type {
+    border-bottom: 0px;
+    margin: 0px;
+}
+.NLrsy .container > div {
+    border-bottom: 0px;
+    margin: 0px 0px 16px;
+}
+.BgVfT .container > div {
+    border-bottom: 1px solid rgb(228, 228, 228);
+    margin: 0px 0px 16px;
+}
+.eeBRDs:last-of-type {
+    margin-bottom: 0px !important;
+}
+.eeBRDs {
+    width: 100%;
+    margin-bottom: 14px !important;
+    border-bottom: none !important;
+}
+.cORMrX {
+    padding: 0px 0px 18px;
+}
+.fOubCv {
+    display: flex;
+    margin: 0px 0px 12px;
+}
+.hLdtkm {
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 120%;
+    color: rgb(28, 28, 28);
+}
+
+
+.kGdLSK {
+    border-radius: 4px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-width: 1px 1px;
+    border-style: solid;
+    border-color: rgb(228, 228, 228);
+    border-image: initial;
+}
+
+.hbMPtL {
+    border-bottom: none;
+    padding: 0px;
+}
+.kgSInJ {
+    display: flex;
+    padding: 18px 16px 18px 20px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+.hbMPtL .radioComponent {
+    width: 100%;
+}
+.hbMPtL .radioComponent label {
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.bEYdfr {
+    position: relative;
+    overflow: hidden;
+    width: 22px;
+    height: 22px;
+    border: none;
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: rgb(248, 100, 83);
+}
+.bEYdfr::before {
+    content: "";
+    width: 10px;
+    height: 10px;
+    display: block;
+    position: absolute;
+    background: white;
+    left: 50%;
+    top: 50%;
+    border-radius: 50%;
+    margin: -5px 0px 0px -5px;
+}
+.bEYdfr input[type="radio"] {
+    position: absolute;
+    left: -1000em;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-size: 100%;
+    font-variation-settings: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+.gfjoLX {
+    padding: 0px 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+}
+.jTPxtl {
+    display: flex;
+    padding: 1px 4px;
+    height: 18px;
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 4px;
+    background: rgb(240, 240, 240);
+    font: 400 10px / 18px Pretendard, sans-serif;
+    color: rgb(61, 61, 61);
+}
+.gfjoLX {
+    padding: 0px 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 8px;
+}
+.hbMPtL .radioComponent label {
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.hbMPtL .radioComponent {
+    width: 100%;
+}
+.hbMPtL {
+    border-bottom: none;
+    padding: 0px;
+}
+.kgSInJ {
+    display: flex;
+    padding: 18px 16px 18px 20px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+.kgSInJ:last-child {
+    border-bottom: 0px;
+}
+.hbMPtL {
+    border-bottom: none;
+    padding: 0px;
+}
+.kgSInJ {
+    display: flex;
+    padding: 18px 16px 18px 20px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+.hbMPtL .radioComponent {
+    width: 100%;
+}
+.hbMPtL .radioComponent label {
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.zzbKT {
+    position: relative;
+    overflow: hidden;
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: white;
+}
+.zzbKT input[type="radio"] {
+    position: absolute;
+    left: -1000em;
+}
+button, input, optgroup, select, textarea {
+    color: inherit;
+    font-family: inherit;
+    font-feature-settings: inherit;
+    font-size: 100%;
+    font-variation-settings: inherit;
+    font-weight: inherit;
+    letter-spacing: inherit;
+    line-height: inherit;
+    margin: 0;
+    padding: 0;
+}
+.zzbKT {
+    position: relative;
+    overflow: hidden;
+    width: 22px;
+    height: 22px;
+    border: 1px solid rgb(228, 228, 228);
+    border-radius: 50%;
+    flex-shrink: 0;
+    background: white;
+}
+.gfjoLX {
+    padding: 0px 8px;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    gap: 8px;
+}
+.hbMPtL .radioComponent label {
+    cursor: pointer;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+}
+.hbMPtL .radioComponent {
+    width: 100%;
+}
+.kgSInJ:last-child {
+    border-bottom: 0px;
+}
+.hbMPtL {
+    border-bottom: none;
+    padding: 0px;
+}
+.kgSInJ {
+    display: flex;
+    padding: 18px 16px 18px 20px;
+    border-bottom: 1px solid rgb(228, 228, 228);
+}
+
+.gpQzhZ {
+    display: flex;
+    width: 100%;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    border-top: 1px solid rgb(230, 230, 230);
+    height: 60px;
+  
+}
+.kGdLSK::after {
+    content: "";
+    min-height: inherit;
+    font-size: 0px;
+}
+.kGdLSK {
+    border-radius: 4px;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    margin-left: 0px;
+    margin-right: 0px;
+    border-width: 1px 1px;
+    border-style: solid;
+    border-color: rgb(228, 228, 228);
+    border-image: initial;
+    }
+.cORMrX {
+    padding: 0px 0px 18px;
+}
+
+.hbMPtL {
+    flex: 1;
+}
+
+.kgSInJ {
+    padding: 0;
+    border-bottom: 0;
+}
+
+
+/**/
+.email__email input{
+    width: 300px;
+}
+
+/**/
+
+/**/
+
+.email__email {
+    display: flex;
+    align-items: center;
+    gap: 6px;   
+}
+
+.email__email input[type="text"],
+.email__email select {
+    height: 40px;
+    line-height: 36px;
+}
+.ainput {
+    width: 520px;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    font-size: 13px;
+    padding: 0 15px;
+    margin-top: 9px !important;
+    margin-bottom: 9px !important;
+    box-sizing: border-box;
+    color: #333;
+    margin: 5px 0px;
+}
+
+/*이메일 주소 선택*/
+#selected-data {
+    display: none; 
+    width: 150px !important; 
+    margin-left: 5px;
+}
+
+#selected-data.active {
+    display: inline-block; 
+}
+
+#selected-data-2 {
+    display: none;
+    width: 400px !important; 
+    margin-right: 5px;
+}
+
+#selected-data-2.active{
+    display: inline-block;
+}
+
+
+
+/**/
+.duZJFK.flex {
+        flex-direction: row;
+        display: flex;
+    }
+.hFNMZa {
+    gap: 32px;
+    padding: 20px;
+    }
+/**/
+
+.gpQzhZ span {
+    display: inline-flex;
+    font-size: 16px;
+    line-height: 27px;
+    color: rgb(109, 109, 109);
+}
+.hFNMZa {
+        gap: 5px;
+        height: 64px;
+    }
+
+
+
+.BgVfT .container > div {
+    border-bottom: none !important;
+}
+
+.abinput {
+    display:flex;
+    width: 520px !important;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    font-size: 13px;
+    padding: 0 15px;
+    margin-top: 9px !important;
+    margin-bottom: 9px !important;
+    box-sizing: border-box;
+    color: #333;
+    margin: 5px 0px;
+}
+.abinput-1 {
+    display:flex;
+    width: 20%;
+    height: 40px;
+    border: 1px solid #e5e5e5;
+    background: #fff;
+    font-size: 13px;
+    padding: 0 15px;
+    margin-top: 9px !important;
+    margin-bottom: 9px !important;
+    box-sizing: border-box;
+    color: #333;
+    margin: 5px 0px;
+}
+/*주소 검색*/
+.c_form .with_btn .c_btn {
+    padding: 0 15px !important;
+}
+.c_btn.black.line {
+    color: #000;
+    background: #fff !important;
+}
+.c_btn.h45 {
+    height: 45px;
+    font-size: 13px !important;
+    padding: 0 15px;
+    font-weight: 600;
+}
+.c_btn.line {
+    background: #fff !important;
+}
+
+a:link, a:visited {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}
+.c_btn {
+    font-size: 12px;
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.15s ease-out;
+    -webkit-transition: all 0.15s ease-out;
+}
+.c_btn {
+    height: 30px;
+    background: #fff;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+    padding: 0 10px;
+    white-space: nowrap;
+    text-align: center !important;
+    color: #999;
+    font-weight: 500;
+    letter-spacing: 0px;
+    line-height: 1;
+}
+.btn-wrap {
+    display: flex;
+    gap: 10px;          
+    align-items: center;
+}
+.btn-td {
+    white-space: nowrap;
+}
+
+.SettingForm__Wrapper{
+    display:block;
+}
+
+.off{
+    display:none;
+}
+
+/*결제하기*/
+.c_btnbox.type_full .c_btn {
+    padding: 0px !important;
+}
+.c_btnbox .c_btn {
+    display: flex;
+}
+.c_btn.color {
+    background: #e10000;
+    border-color: #e10000;
+    color: #fff;
+    width: 100px;
+}
+.c_btn.h50 {
+    display:flex;
+    height: 50px;
+    font-size: 15px !important;
+    padding: 30px 20px;
+    font-weight: 700;
+    margin: 10px;
+    width: 450px;
+}
+.payment{
+    display:flex;
+    justify-content: center;
+}
+#sample4_jibunAddress {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #e5e5e5; !important;
+    border-radius: 4px;
+    box-sizing: border-box;
 }

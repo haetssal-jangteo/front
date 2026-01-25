@@ -756,3 +756,7 @@ button, input:where([type=button]), input:where([type=reset]), input:where([type
     border: 0 solid #e5e7eb;
     box-sizing: border-box;
 }
+/**/
+.QRcode {
+    width: 100%;
+}
