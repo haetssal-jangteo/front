@@ -73,7 +73,6 @@
     font-display: swap;
 }
 
-/* Reset */
 *, :after, :before {
     border: 0 solid #e5e7eb;
     box-sizing: border-box;
@@ -632,7 +631,7 @@ img {
     color: white;
 }
 
-/* 네비게이션바 */
+/* 네비바 */
 .nav-bar {
     width: 100%;
     background-color: rgb(255, 255, 255);
@@ -645,6 +644,7 @@ img {
     padding: 0px 1rem;
 }
 
+/* 일정 스크롤 내렸을때 이 클래스 붙임 */
 .nav-bar.scrolled-down {
     box-shadow: rgba(0, 0, 0, 0.08) 0px 2px 4px;
     position: fixed;

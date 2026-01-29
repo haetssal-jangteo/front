@@ -16,6 +16,7 @@ const heartButtons = document.querySelectorAll(".like-button");
 
 const showReviews = document.querySelector(".each-seller-level");
 
+const onlyPhotoInput = document.querySelector(".ckbox-reviewtab")
 const onlyPhoto = document.querySelector(".only-photo");
 const photoReview = document.querySelector(".photo-review-count");
 
@@ -171,7 +172,7 @@ const showModal = (modalMessage) => {
 };
 
 // 6. 사진만보기 버튼
-onlyPhoto.addEventListener("click", (e) => {
+onlyPhotoInput.addEventListener("change", (e) => {
     const condition = onlyPhoto.classList.contains("checked");
     if(!condition) {
         onlyPhoto.classList.add("checked");

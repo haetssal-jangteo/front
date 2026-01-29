@@ -26,7 +26,7 @@ const showAllInfoBtn = document.querySelector(".show-all-info-btn");
 // 7번 이벤트
 // 클래스 select-text(상품선택or선택한상품 있는곳)의
 // 겟바운딩탑(현재 내가 보고있는 화면을 기준으로 높이) + 스크롤Y(내가 얼마나 스크롤 했는지)
-// ==> 화면 맨위에서부터의 높이값
+// ==> 화면 맨위에서부터의 높이값? 높이차이?
 const SideBarHeight = document.querySelector(".select-text").getBoundingClientRect().top + window.scrollY;
 
 const navTarget = document.querySelector(".nav-bar");
@@ -182,7 +182,7 @@ showAllInfoBtn.addEventListener("click", (e) => {
     showAllInfoBtn.style.display = "none";
 });
 
-// 7. 스크롤로 사이드바 따라다니게 하는 이벤트
+// 7. 스크롤 내리면 따라다니게 하는 이벤트
 $(window).scroll((e) => {
 
     // 7-1. 내가 내린 스크롤 값이 변수보다 같아진 순간부터 딸려옴
@@ -208,8 +208,8 @@ $(window).scroll((e) => {
 		sectionTarget.classList.remove("scrolled-down");
 	}
 
-    // 기본적으로 active는 [0]인 상품설명에 주어져있음
     // 7-3.셀러인트로 지나면 active주기
+    // 기본적으로 active는 [0]인 상품설명에 주어져있음
     if(window.scrollY >= refundTargetHeight) {
         sectionTabs.forEach((eachTab) => {
             eachTab.classList.remove("active");
