@@ -146,7 +146,6 @@ img {
     max-width: 100%;
 }
 
-/* Layout */
 .full-view {
     display: flex;
     flex-direction: column;
@@ -212,7 +211,7 @@ img {
     margin: 0px auto;
 }
 
-/* Category Links */
+/* 최상단 카테고리들 */
 .category-links {
     display: flex;
     gap: 4px;
@@ -241,7 +240,6 @@ img {
     height: 24px;
 }
 
-/* Product Introduction Wrapper */
 .product-intro-wrapper {
     gap: 72px;
     display: flex;
@@ -307,7 +305,7 @@ img {
     border-radius: 4px;
 }
 
-/* Product Info Section */
+
 .product-info-section {
     width: auto;
     flex: 1 1 0%;
@@ -321,7 +319,7 @@ img {
     display: block;
 }
 
-/* Seller Link */
+/* 판매자 */
 .seller-link {
     display: flex;
     align-items: center;
@@ -339,7 +337,7 @@ img {
     height: 14px;
 }
 
-/* Product Title */
+/* 상품제목 */
 .product-title {
     font-size: 24px;
     font-weight: bold;
@@ -354,7 +352,7 @@ img {
     line-height: 120%;
 }
 
-/* Price */
+/* 가격 */
 .price-wrapper {
     width: 100%;
     order: 4;
@@ -388,7 +386,7 @@ img {
     color: rgb(235, 75, 56);
 }
 
-/* Divider */
+/* 빈공간 */
 .divider {
     width: 100%;
     margin-left: 0px;
@@ -400,7 +398,7 @@ img {
     background-color: rgb(240, 240, 240);
 }
 
-/* Info Section */
+/* 인포 */
 .info-section {
     margin: 0px 0px 1rem;
     order: 5;
@@ -441,7 +439,7 @@ img {
     line-height: 120%;
 }
 
-/* Links Wrapper */
+
 .links-wrapper {
     display: flex;
     flex-direction: column;
@@ -452,7 +450,7 @@ img {
     padding: 0px;
 }
 
-/* Action Buttons */
+/* 버튼들 */
 .action-buttons {
     order: 5;
     width: 100%;
@@ -461,13 +459,14 @@ img {
 }
 
 .action-buttons-inner {
+    gap: 20px;
     display: flex;
     width: 100%;
     align-items: center;
     justify-content: space-between;
 }
 
-/* Like Button */
+/* 좋아요 */
 .like-btn-wrapper {
     order: 1;
     z-index: 400;
@@ -532,8 +531,8 @@ img {
     text-align: center;
 }
 
-/* Share Button */
-.share-btn-wrapper {
+/* 공유버튼 */
+/* .share-btn-wrapper {
     padding: 0.5rem 0px;
     margin: 0px 6px;
     order: 2;
@@ -584,9 +583,9 @@ img {
     line-height: 120%;
     color: rgb(84, 84, 84);
     text-align: center;
-}
+} */
 
-/* Buy Button */
+/* 구매버튼 */
 .buy-btn-wrapper {
     flex-grow: 1;
     order: 3;

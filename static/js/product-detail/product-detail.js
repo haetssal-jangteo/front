@@ -40,14 +40,6 @@ const sectionTabs = document.querySelectorAll(".section-tab");
 const productIntroTarget = document.querySelector("#productIntro");
 const productTargetHeight = productIntroTarget.getBoundingClientRect().top + window.scrollY -184;
 
-const sellerIntroTarget = document.querySelector("#sellerIntro");
-const sellerTargetHeight = sellerIntroTarget.getBoundingClientRect().top + window.scrollY -216; 
-
-const refundIntroTarget = document.querySelector("#refundExchangeIntro");
-const refundTargetHeight = refundIntroTarget.getBoundingClientRect().top + window.scrollY -216; //내 모니터기준 3400정도찍힘
-
-const targetHeight = [productTargetHeight, sellerTargetHeight, refundTargetHeight];
-
 // 10번 이벤트
 const buyBtnInMain = document.querySelector(".buy-btn");
 
@@ -88,7 +80,7 @@ portals.forEach((portal, i) => {
         } else {
             goToTargetHeight = navBarHeight -32;
         }
-        console.log(goToTargetHeight)
+
         window.scrollTo({
             top: goToTargetHeight,
             behavior: "smooth"
@@ -180,6 +172,7 @@ thumbnails.forEach((thumbnail) => {
 showAllInfoBtn.addEventListener("click", (e) => {
     introCard.classList.add("expanded");
     showAllInfoBtn.style.display = "none";
+    
 });
 
 // 7. 스크롤 내리면 따라다니게 하는 이벤트
@@ -210,6 +203,13 @@ $(window).scroll((e) => {
 
     // 7-3.셀러인트로 지나면 active주기
     // 기본적으로 active는 [0]인 상품설명에 주어져있음
+
+    const sellerIntroTarget = document.querySelector("#sellerIntro");
+    const sellerTargetHeight = sellerIntroTarget.getBoundingClientRect().top + window.scrollY -108; 
+
+    const refundIntroTarget = document.querySelector("#refundExchangeIntro");
+    const refundTargetHeight = refundIntroTarget.getBoundingClientRect().top + window.scrollY -108; 
+
     if(window.scrollY >= refundTargetHeight) {
         sectionTabs.forEach((eachTab) => {
             eachTab.classList.remove("active");
@@ -242,6 +242,18 @@ $(window).scroll((e) => {
 // 8. 섹션탭 아이템들 눌렀을때 알맞는 위치로 이동
 sectionTabs.forEach((tab, i) => {
     tab.addEventListener("click", (e) => {
+
+        // 전역변수랑 안겹치게 얘만좀 다르게 이름지음
+        const productTarget = document.querySelector("#productIntro");
+        const productHeight = productTarget.getBoundingClientRect().top + window.scrollY -92;
+
+        const sellerIntroTarget = document.querySelector("#sellerIntro");
+        const sellerTargetHeight = sellerIntroTarget.getBoundingClientRect().top + window.scrollY -107; 
+
+        const refundIntroTarget = document.querySelector("#refundExchangeIntro");
+        const refundTargetHeight = refundIntroTarget.getBoundingClientRect().top + window.scrollY -107; 
+
+        const targetHeight = [productHeight, sellerTargetHeight, refundTargetHeight];
 
         sectionTabs.forEach((each) => {
             each.classList.remove("active");
