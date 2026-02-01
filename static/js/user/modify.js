@@ -8,11 +8,14 @@ const userInfoDiv = document.getElementById("user-info");
 const userAccountDiv = document.getElementById("user-account");
 const userDeliveryDiv = document.getElementById("user-delivery");
 
+// 유저 정보 담을 변수
+let userInfo = null;
+
 const allSection = [userInfoDiv, userAccountDiv, userDeliveryDiv];
 
 allSection.forEach((section) => section.classList.add("off"));
 
-// 네비세이션 언더바 움직임 애니메이션
+// 네비게이션 언더바 움직임 애니메이션
 const moveUnderBar = (element) => {
     const left = element.offsetLeft;
     const width = element.offsetWidth;
@@ -50,5 +53,9 @@ menus.forEach((menu, i) => {
         moveUnderBar(menu);
     });
 });
+
+const getUserInfo = async () => {
+    // 유저 정보 받아오는 로직 짜야함
+};
 
 document.querySelector('.Navigation-Span[name="user-info"]')?.click();

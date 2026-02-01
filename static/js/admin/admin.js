@@ -25,6 +25,10 @@ const allSection = [
 // 검색용 키워드
 let keyword = "";
 
+// ---- TODO ----
+// 각 페이지의 목록 요소들은 서버에서 받아와서 뿌려야함
+// 로직은 여기에 작성
+
 // 각 페이지의 상단 검색바
 const searchBars = document.querySelectorAll(".DashBoard-HeaderContent");
 
@@ -58,6 +62,7 @@ sideMenus.forEach((menu) => {
     clickAnimation(menu);
 });
 
+// 홈 부분의 관리 페이지 이동 버튼들
 manageButtons.forEach((button) => {
     button.addEventListener("click", (e) => {
         const wrapper = button.closest(".MainContent-Wrapper");
@@ -77,6 +82,7 @@ manageButtons.forEach((button) => {
     });
 });
 
+// 신고 관리 페이지로 이동
 reportMngBtn.addEventListener("click", (e) => {
     document.querySelector("div[name=reportMenu]").click();
 });
@@ -154,17 +160,16 @@ const itemEditModal = document.querySelector("div[name=item-edit]");
 const reportEditModal = document.querySelector("div[name=report-edit]");
 
 const allListSection = [userListDiv, marketListDiv, itemListDiv];
-const editModals = [
-    userEditModal,
-    marketEditModal,
-    itemEditModal,
-    reportEditModal,
-];
+const editModals = [userEditModal, marketEditModal, itemEditModal];
 const reportContents = [marketApply, sellerApply, reportList];
 
+// 누른 목록에 종류에 따라 해당 모달 활성화
 allListSection.forEach((listItem) => {
     const listName = listItem.getAttribute("name");
     const listItems = listItem.querySelectorAll(".MainContent-ItemList");
+    const listCount = listItem.querySelector(".MainContent-CountText span");
+
+    listCount.innerHTML = listItems.length;
 
     listItems.forEach((item) => {
         item.addEventListener("click", (e) => {
@@ -196,7 +201,7 @@ editModals.forEach((modal) => {
         ".EditModal-Input.disabled, .EditModal-Select.disabled",
     );
 
-    editButton.addEventListener("click", (e) => {
+    editButton?.addEventListener("click", (e) => {
         editElements.forEach((element) => {
             element.classList.toggle("disabled");
             element.disabled = false;
@@ -244,11 +249,20 @@ editModals.forEach((modal) => {
 });
 
 // 신고 관리 페이지 기능
-reportContents.forEach((reportContent) => {
+reportContents.forEach((reportContent, i) => {
     const contentName = reportContent.getAttribute("name");
     const contentItems = reportContent.querySelectorAll(
         ".ReportContent-CardWrapper, .MainContent-ItemList",
     );
+    const reportContentDiv =
+        reportEditModal.querySelector(".EditModal-Content");
+    const reportTextarea = document.getElementById("report-content");
+
+    // ---- TODO ----
+    // 가져온 신고 정보에 분류 값이 '판매자 등록' 나 '가게 등록'이면 신고 내용 off
+    // '일반 신고' 면 승인, 거부 버튼 off
+    const reportTextareaDiv = reportTextarea.closest(".EditModal-SingleInput");
+    const reportButtons = reportContentDiv.lastElementChild;
 
     contentItems.forEach((item) => {
         if (item.classList[0] === "ReportContent-CardWrapper") {
@@ -267,6 +281,49 @@ reportContents.forEach((reportContent) => {
             clickAnimation(item);
         }
     });
+});
+
+// 신고 조회 버튼
+const deniedButton = reportEditModal.querySelector(".EditModal-Button.Denied");
+const applyButton = reportEditModal.querySelector(".EditModal-Button.Apply");
+const editElements = reportEditModal.querySelectorAll(
+    ".EditModal-Input.disabled, .EditModal-Select.disabled",
+);
+const reportModalBackdrop = reportEditModal.querySelector(".EditModal-Wrapper");
+
+deniedButton.addEventListener("click", (e) => {
+    let result = confirm("해당 등록 요청을 거부합니까?");
+
+    if (result) {
+        // 해당 신고 상태를 "거부"로 변경하는 요청
+
+        // 성공하면 alert
+        alert("등록 요청이 거부 되었습니다.");
+        reportEditModal.classList.add("off");
+    }
+});
+
+applyButton.addEventListener("click", (e) => {
+    let result = confirm("해당 등록 요청을 승인합니까?");
+
+    if (result) {
+        // 해당 신고 상태를 "완료"로 변경하는 요청
+
+        // 성공하면 alert
+        alert("등록 요청이 승인 되었습니다.");
+        reportEditModal.classList.add("off");
+    }
+});
+
+reportModalBackdrop.addEventListener("click", (e) => {
+    if (e.target === reportModalBackdrop) {
+        editElements.forEach((element) => {
+            element.classList.add("disabled");
+            element.disabled = true;
+        });
+
+        reportEditModal.classList.add("off");
+    }
 });
 
 // 클릭 시 크기 변하는 애니메이션
