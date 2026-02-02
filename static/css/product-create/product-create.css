@@ -146,10 +146,6 @@ label.upload-btn {
     cursor: pointer;
 }
 
-button[disabled], html input[disabled] {
-    cursor: default;
-}
-
 textarea {
     overflow: auto;
 }
@@ -167,18 +163,9 @@ svg:not(:root) {
     height: 1em;
 }
 
-.svg-wrap img {
-    width: 1em;
-    height: 1em;
-}
-
 .svg-wrap {
     display: inline-flex;
     align-self: center;
-}
-
-.registration-button:hover {
-    border: 1px solid rgb(229, 60, 65);
 }
 
 .full-view {
@@ -244,6 +231,24 @@ svg:not(:root) {
     color: rgb(13, 13, 13);
 }
 
+.arrow-wrap {
+    margin-right: 9px;
+    display: inline-flex;
+    align-self: center;
+}
+
+.header-center-logo {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
 .header-btn-wrap {
     position: relative;
     z-index: 1;
@@ -262,24 +267,6 @@ svg:not(:root) {
     font-size: 14px;
     font-weight: 700;
     line-height: 120%;
-}
-
-.arrow-wrap {
-    margin-right: 9px;
-    display: inline-flex;
-    align-self: center;
-}
-
-.header-center-logo {
-    display: flex;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: 0px;
 }
 
 .logo-wrapper {
@@ -437,7 +424,7 @@ svg:not(:root) {
     align-items: center;
     background: white;
     padding: 0px 18px;
-    border: 1px solid rgb(228, 228, 228);
+    border: 1px solid rgb(229, 60, 65);
     border-radius: 4px;
 }
 
@@ -503,7 +490,7 @@ svg:not(:root) {
     /* color: rgb(84, 84, 84); */
 }
 
-.profile-img-wrapper {
+.product-img-wrapper {
     display: flex;
     align-items: center;
 }
@@ -528,14 +515,11 @@ svg:not(:root) {
     box-shadow: rgb(208, 208, 208) 0px 0px 1px 0px inset, rgb(208, 208, 208) 0px 0px 1px 0px;
 }
 
-.profile-image-uploaded {
+.product-image-uploaded {
     width: 100%;
     height: 100%;
     position: relative;
     z-index: 100;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
     /* 이거 주소는 어케하냐 */
     /* background: url(https://); */
 }
@@ -607,13 +591,13 @@ svg:not(:root) {
     outline: none;
 }
 
-.market-option-container {
+.market-option-container, .category-option-container {
     margin: 0px;
     margin-bottom: 24px;
     width: 100%;
 }
 
-.market-category, .region-category {
+.market-category, .region-category, .category-label {
     font-weight: bold;
     font-size: 11px;
     line-height: 18px;
@@ -623,16 +607,35 @@ svg:not(:root) {
     display: flex;
 }
 
-.category-select-box, .region-select-box {
+.category-input-wrapper {
+    padding: 0px 18px;
+
+    /* 일단 초기스타일임 */
+    background: white;
+    border: 1px solid rgb(228, 228, 228);
+    color: rgb(201, 201, 201);
+
+    max-height: 44px;
+    min-width: 100px;
+    display: flex;
+    font-size: 14px;
+    line-height: 24px;
+    letter-spacing: -0.015em;
+    align-items: center;
+    border-radius: 1px;
+}
+
+
+.market-select-box, .region-select-box, .category-select-box {
     position: relative;
     cursor: pointer;
 }
 
-/* 지역 선택 드롭다운, 카테고리 선택 드롭다운 */
+/* 지역/카테고리 선택 드롭다운 */
 .region-select-dropdown, .category-select-dropdown {
     display: none;
     width: 100%;
-    max-height: 300px;
+    max-height: 500px;
     overflow-y: auto;
     margin: 0px;
     padding: 8px;
@@ -647,16 +650,19 @@ svg:not(:root) {
     transform: translateY(48px);
 }
 
-.region-select-box.clicked .region-select-dropdown, .category-select-box.clicked .category-select-dropdown {
+.region-select-box.clicked .region-select-dropdown,
+.category-select-box.clicked .category-select-dropdown {
     display: block;
 }
 
-.region-select-box.clicked .arrow-icon, .category-select-box.clicked .arrow-icon {
+.region-select-box.clicked .arrow-icon,
+.category-select-box.clicked .arrow-icon {
     transform: rotate(180deg);
 }
 
-.region-select-box.disabled {
-    pointer-events: none;
+.region-select-box.disabled,
+.category-select-box.disabled {
+     pointer-events: none;
 }
 
 .each-region-item, .each-category-item {
@@ -678,25 +684,25 @@ svg:not(:root) {
     background: rgb(248, 248, 248);
 }
 
-.region-option-container {
+.region-option-container, .category-option-container {
     margin: 0px 8px;
     margin-bottom: 24px;
     width: 50%;
 }
 
-.region-option-container:first-child {
+.region-option-container:first-child, .category-option-container:first-child {
     margin-left: 0px;
 }
 
-.region-option-container:last-child {
+.region-option-container:last-child, .category-option-container:last-child {
     margin-right: 0px;
 }
 
 
 /* 일단지역ab 둘다 선택안했을때 기준만 활성화해놓음 */
-.region-input-wrapper, .category-input-wrapper {
+.region-input-wrapper {
     padding: 0px 18px;
-    
+
     /* 일단 초기스타일임 */
     background: white;
     border: 1px solid rgb(228, 228, 228);
@@ -712,7 +718,8 @@ svg:not(:root) {
     border-radius: 1px;
 }
 
-.region-input-wrapper.selected, .category-input-wrapper.selected {
+.region-input-wrapper.selected,
+.category-input-wrapper.selected {
     border: 1px solid rgb(13, 13, 13);
     color: rgb(13, 13, 13);
 }
@@ -735,18 +742,20 @@ svg:not(:root) {
     transition: transform 0.3s 0s;
 }
 
-.region-input-wrapper svg, .category-input-wrapper svg {
+.region-input-wrapper svg,
+.category-input-wrapper svg {
     fill: rgb(61, 61, 61);
     transition: transform 0.3s;
 }
 
-/* 2차 지역카테고리를 위한 css(1차 선택전) */
-.region-select-box.disabled .region-input-wrapper svg {
+.region-select-box.disabled .region-input-wrapper svg,
+.category-select-box.disabled .category-input-wrapper svg {
     fill: rgb(158, 158, 158);
     transition: transform 0.3s;
 }
-/* 2차 지역카테고리를 위한 css(1차 선택전) */
-.region-select-box.disabled .region-input-wrapper {
+
+.region-select-box.disabled .region-input-wrapper,
+.category-select-box.disabled .category-input-wrapper {
     padding: 0px 18px;
     background: rgba(240, 240, 240, 0.7);
     border: 1px solid rgb(228, 228, 228);
@@ -804,12 +813,6 @@ svg:not(:root) {
     background: white;
 }
 
-.info-check-btn.disabled {
-    pointer-events: none;
-    color: rgb(0, 128, 0);
-    border: 1px solid rgb(0, 128, 0);
-}
-
 .info-icon-type {
     color: rgb(61, 61, 61);
     font-weight: 500;
@@ -826,268 +829,7 @@ svg:not(:root) {
     top: 6px;
 }
 
-.info-check-container {
-    display: none;
-    padding: 40px 24px;
-    border: 1px solid rgb(238, 238, 238);
-    background: rgb(255, 255, 255);
-    border-radius: 4px;
-    list-style: none;
-    margin: 0px;
-}
-
-.type-inputs-wrap {
-    display: flex;
-}
-
-.type-input-full {
-    width: 100%;
-}
-
-/* 입력유형(인증) */
-.type-wrap {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: flex-start;
-    color: rgb(13, 13, 13);
-    margin: 0px;
-}
-
-.type-text-box {
-    display: flex;
-    align-items: center;
-    border-radius: 2px;
-    font-size: 16px;
-    outline: none;
-    border: 0px;
-    background: transparent;
-    width: 50%;
-    height: 44px;
-    text-align: left;
-    gap: 8px;
-}
-
-.type-text {
-    display: flex;
-    align-items: center;   
-    font-weight: 500;
-    margin: 0px;
-    font-size: 12px !important;
-    line-height: 20px !important; 
-}
-
-.full-input-wrap {
-    display: flex;
-    flex-direction: column;
-}
-
-.type-inputs-wrap {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-}
-
-.full-input {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    color: rgb(61, 61, 61);
-    background: white;
-    height: 40px;
-    white-space: nowrap;
-    border-radius: 1px;
-    margin: 0px;
-    outline: 0px;
-    font-weight: normal;
-    padding: 0px 16px;
-    border: 1px solid rgb(240, 240, 240);
-    color: rgb(61, 61, 61);
-    background: white;
-    font-size: 12px;
-}
-
-.input-complete-btns {
-    gap: 16px;
-    margin-top: 22px;
-    display: flex;
-    justify-content: right;
-}
-
-.input-complete-btns button {
-    font-weight: 500;
-    font-size: 11px !important;
-    line-height: 18px !important;
-    padding: 0px 16px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    height: 36px;
-    white-space: nowrap;
-    border-radius: 4px;
-    margin: 0px;
-    outline: 0px;
-}
-
-.cancel-btn {
-    border: 1px solid rgb(240, 240, 240);
-    color: rgb(61, 61, 61);
-    background: white;
-}
-
-.do-check-btn, .do-check-btn-in-check, .more-time-btn-in-check {
-    color: white;
-    background: rgb(248, 100, 83);
-    border: 1px solid rgb(248, 100, 83);
-    cursor: pointer;
-}
-
-.do-check-btn.disabled, .do-check-btn-in-check.disabled {
-    opacity: 0.5;
-    pointer-events: none;
-}
-
-.when-do-check-wrap {
-    display: none;
-    flex-direction: column;
-    width: 40%;
-}
-
-.when-do-check-wrap .type-text {
-    color: #FF7B00;
-}
-
-.time-left {
-    display: flex;
-    align-items: center;   
-    font-weight: 500;
-    margin: 0px;
-    font-size: 12px !important;
-    line-height: 20px !important; 
-    color: #FF7B00;
-}
-
-.check-number-box {
-    width: 100%;
-    display: flex;
-}
-
-.check-number-input {
-    width: 100%;
-    display: inline-flex;
-    align-items: center;
-    color: rgb(226, 77, 77);
-    background: white;
-    height: 40px;
-    white-space: nowrap;
-    border-radius: 1px;
-    margin: 0px;
-    outline: 0px;
-    font-weight: bold;
-    padding: 0px 16px;
-    border: 1px solid rgb(240, 240, 240);
-    font-size: 12px;
-}
-
-.check-complete-btns {
-    margin-top: 12px;
-    gap: 8px;
-    display: flex;
-    justify-content: right;
-    height: 36px;
-}
-
-.do-check-btn-in-check, .more-time-btn-in-check {
-    font-weight: 500;
-    font-size: 11px !important;
-    line-height: 18px !important;
-    padding: 0px 8px;
-    cursor: pointer;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    white-space: nowrap;
-    border-radius: 4px;
-    margin: 0px;
-    outline: 0px;
-}
-
-/* .active {
-    border: 1px solid rgb(248, 100, 83);
-} */
-
-/* .type-btn-half {
-    width: 50%;
-    padding: 0px 8px;
-}
-
-.type-btn-half:first-child {
-    padding-left: 0px;
-}
-
-.type-btn-half:last-child {
-    padding-right: 0px;
-}
-
-.type-btns-wrap svg {
-    margin-right: 12px;
-    fill: rgb(248, 100, 83);
-} */
-
-/* 예금주 생년월일 */
-
-/* .disabled-btn-by-identity {
-    border-radius: 4px;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background: rgb(240, 240, 240);
-    padding: 0px 18px;
-    border: 1px solid rgb(228, 228, 228);
-}
-
-.input-wrapper {
-    flex: 1 1 0%;
-    border: 0px;
-    text-align: left;
-    padding: 0px;
-    background: transparent;
-    color: rgb(158, 158, 158);
-    max-height: 44px;
-    min-width: 100px;
-    display: flex;
-    font-size: 14px;
-    line-height: 24px;
-    letter-spacing: -0.015em;
-    align-items: center;
-    border-radius: 1px;
-}
-
-.account-tax-input.disabled {
-    color: rgb(28, 28, 28);
-    background: rgb(240, 240, 240);
-    border-radius: 6px;
-    text-align: inherit;
-    font-size: 14px;
-    font-weight: normal;
-    line-height: 150%;
-    width: 100%;
-    border: 0px;
-    padding: 11px 0px;
-    box-sizing: border-box;
-    height: 100%;
-    outline: none;
-    margin: 0px;
-    appearance: none !important;
-    pointer-events: none;
-}
-
-.half-contents {
-    display: flex;
-} */
-
-/* 인증완료하면 이걸로..는 아니고 상위에 complete붙이기 일단 임시 */
+/* 인증완료하면 이걸로 */
 .info-icon-type.complete svg {
     fill: rgb(0, 128, 0);
 } 

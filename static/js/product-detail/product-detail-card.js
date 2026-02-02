@@ -10,7 +10,7 @@ const appeardCart = document.querySelector(".selected-options-container");
 // 선택된옵션들 담는 그다음 큰 박스
 const cartsBox = document.querySelector(".selected-list-container");
 const totalPrice = document.querySelector(".total-price");
-const bulletSvg = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="1.25" fill="#9E9E9E"></circle></svg>`;
+const bulletIcon = `<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none"><circle cx="6" cy="6" r="1.25" fill="#9E9E9E"></circle></svg>`;
 
 // 옵션 변수들
 const optionCards = document.querySelectorAll(".each-product-option");
@@ -88,7 +88,7 @@ optionCards.forEach((card) => {
                 <li>
                     <div class="cart-item-list">
                         <div class="cart-bullet">
-                            ${bulletSvg}
+                            ${bulletIcon}
                         </div>
                         <span>
                             ${spans[0].textContent}

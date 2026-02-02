@@ -10,8 +10,9 @@ const heartButtons = document.querySelectorAll(".like-button");
 // a를 펼치려고 클릭했을때, b가 펼쳐져있는걸 닫아버림
 regionBoxes.forEach((regionBox) => {
     regionBox.addEventListener("click", (e) => {
+        // 자식과 부모에 둘다 이벤트가 주어졌을때, 자식을 눌렀을때, 부모의 이벤트가 발생하는걸 방지
         if(e.target.closest(".tab-button")) {
-            e.stopPropagation(); // 자식과 부모에 둘다 이벤트가 주어졌을때, 자식을 눌렀을때, 부모의 이벤트가 발생하는걸 방지
+            e.stopPropagation(); 
             return;
         }
         let condition = regionBox.classList.contains("clicked");
