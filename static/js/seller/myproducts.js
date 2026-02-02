@@ -4,10 +4,8 @@ const tabContainer = document.querySelector(".Tab__TabContainer");
 const allBtn = document.querySelector(".entire__Button");
 const bargainBtn = document.querySelector(".deadline__Button");
 
-const cardWrapper = document.querySelector(
-    ".PcMyProjectCardList__CardContainer",
-);
-const cards = cardWrapper.querySelectorAll(".MyProjectCard__CardContainer");
+const cardWrapper = document.querySelector(".MyProductList__CardContainer");
+const cards = document.querySelectorAll(".MyProduct__CardContainer");
 
 bargainBtn.addEventListener("click", (e) => {
     allBtn.classList.remove("selected");

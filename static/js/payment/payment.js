@@ -24,30 +24,24 @@ category.forEach((category) => {
 //         }
 //     });
 // });
-// /* */
-document.addEventListener("DOMContentLoaded", () => {
-    const deliveryRadio = document.querySelector(
-        'input[name="paymentType"][value="delivery"]',
-    );
-    const qrRadio = document.querySelector(
-        'input[name="paymentType"][value="qr"]',
-    );
-    const wrapper = document.querySelector(".SettingForm__Wrapper");
+// /* *
+const deliveryRadio = document.querySelector(
+    'input[name="paymentType"][value="delivery"]',
+);
+const qrRadio = document.querySelector('input[name="paymentType"][value="qr"]');
+const wrapper = document.querySelector(".SettingForm__Wrapper");
 
-    deliveryRadio.checked = true;
+deliveryRadio.checked = true;
 
-    function update() {
-        const checked = document.querySelector(
-            'input[name="paymentType"]:checked',
-        );
-        wrapper.classList.toggle("off", checked.value !== "qr");
-    }
+function update() {
+    const checked = document.querySelector('input[name="paymentType"]:checked');
+    wrapper.classList.toggle("off", checked.value !== "qr");
+}
 
-    update();
+update();
 
-    document.querySelectorAll('input[name="paymentType"]').forEach((radio) => {
-        radio.addEventListener("change", update);
-    });
+document.querySelectorAll('input[name="paymentType"]').forEach((radio) => {
+    radio.addEventListener("change", update);
 });
 
 const pay = async () => {

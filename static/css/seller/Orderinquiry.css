@@ -349,16 +349,16 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 .CreatorCenterLayout__TabListWrapper {
     padding: 0px;
 }
-    .gSrLXe {
-        margin-bottom: 24px;
-        display: flex;
+.CreatorCenterLayout__TabList {
+    margin-bottom: 24px;
+    display: flex;
     flex-direction: row;
     gap: 16px;
     margin-bottom: 0px;
     width: 100%;
     margin-bottom: 30px;
     }
-.jcyoqr {
+.CreatorCenterLayout__StyledTabTrigger {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -425,7 +425,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
 [role=button], button {
     cursor: pointer;
 }
-.fquUPH {
+.CreatorCenterLayout__StyledTabTrigger_2{
     display: flex;
     -webkit-box-align: center;
     align-items: center;
@@ -448,14 +448,14 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, 
     display: flex;
 }
 /**/
-.hbTQqH {
+.Table__Wrapper {
     width: 100%;
 }
-    .jJdBFL {
-        display: block;
-        overflow-x: auto;
-    }
-.vpCBU {
+.Table__Container {
+    display: block;
+    overflow-x: auto;
+}
+.Table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0px;
@@ -465,7 +465,7 @@ table {
     border-color: inherit;
     text-indent: 0;
 }
-.jFlVuj {
+.TableHeader__TableHeaderCell {
     font-size: 13px;
     font-weight: normal;
     line-height: 120%;
@@ -479,7 +479,7 @@ table {
     border-bottom: 1px solid rgb(240, 240, 240);
     
 }
-.jFlVujs {
+.TableHeader__TableHeader {
     font-size: 13px;
     font-weight: normal;
     line-height: 120%;
@@ -494,7 +494,7 @@ table {
     font-weight: bold;
     
 }
-.kTLyef {
+.Table__Header {
     display: flex;
     -webkit-box-align: center;
     align-items: center;
