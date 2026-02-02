@@ -33,17 +33,20 @@ document.addEventListener("DOMContentLoaded", (e) => {
     allSection.forEach((section) => section.classList.add("off"));
 
     // 받아온 리뷰 값
+    // 받아왔을 때 boolean 값 대신 null 넣고 불러오는 메소드에서 값 넣어주기
     let reviews = false;
     let likeItems = true;
     let pendingItems = true;
     let completeItems = true;
 
     // 리뷰 작성 입력값
-    let reviewQuality = 0;
-    let reviewDelivery = 0;
-    let reviewkind = 0;
-    let reviewContent = "";
-    let reviewImages = [];
+    let reviewWriteData = {
+        reviewQuality: 0,
+        reviewDelivery: 0,
+        reviewkind: 0,
+        reviewContent: "",
+        reviewImages: [],
+    };
 
     // 각각의 상품들이 없을 경우, 빈 목록 페이지 표시
     if (!likeItems) {
@@ -268,17 +271,19 @@ document.addEventListener("DOMContentLoaded", (e) => {
         ".ReviewImageList-Container",
     );
 
+    // 각 후기 점수, 내용, 이미지 input 이벤트 처리
+    // --------------------------------------
     reviewQualityinput.addEventListener("change", (e) => {
-        reviewQuality = e.target.value;
+        reviewWriteData.reviewQuality = e.target.value;
     });
     reviewDeliveryInput.addEventListener("change", (e) => {
-        reviewDelivery = e.target.value;
+        reviewWriteData.reviewDelivery = e.target.value;
     });
     reviewKindInput.addEventListener("change", (e) => {
-        reviewkind = e.target.value;
+        reviewWriteData.reviewkind = e.target.value;
     });
     reviewContentInput.addEventListener("keyup", (e) => {
-        reviewContent = e.target.value;
+        reviewWriteData.reviewContent = e.target.value;
     });
     reviewImagesInput.addEventListener("change", (e) => {
         let images = e.target.files;
@@ -296,7 +301,7 @@ document.addEventListener("DOMContentLoaded", (e) => {
             div.innerHTML = `
             <img src="${imgUrl}" alt="">
             <button type="button" class="ReviewImageList-RemoveBtn">
-                <svg width="9" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
+            <svg width="9" height="10" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.064 7.8927L2.13314 0L0.0311185 2.09192L7.96193 9.98462L0 17.9083L2.10202 20.0002L10.064 12.0765L17.8983 19.8732L20.0003 17.7813L12.166 9.98462L19.9692 2.21889L17.8672 0.126967L10.064 7.8927Z" fill="#3D3D3D"></path></svg>
             </button>
             `;
             reviewImageList.appendChild(div);
@@ -307,10 +312,10 @@ document.addEventListener("DOMContentLoaded", (e) => {
 
         Array.from(images).forEach((img) => {
             imgUrl = URL.createObjectURL(img);
-            reviewImages.push(imgUrl);
+            reviewWriteData.reviewImages.push(imgUrl);
         });
 
-        reviewImages.forEach((image) => {
+        reviewWriteData.reviewImages.forEach((image) => {
             let div = document.createElement("div");
             div.classList.add("ReviewImageList-Item");
             div.innerHTML = `
@@ -334,11 +339,15 @@ document.addEventListener("DOMContentLoaded", (e) => {
         reviewImgDeleteBtns.forEach((button, i) => {
             button.addEventListener("click", (e) => {
                 reviewImagesDiv[i].remove();
-                reviewImages.pop(reviewImages[i]);
+                reviewWriteData.reviewImages.pop(
+                    reviewWriteData.reviewImages[i],
+                );
             });
         });
     });
+    // --------------------------------------
 
+    // 리뷰 등록 버튼
     reviewWriteSubmit.addEventListener("click", (e) => {
         // 리뷰 등록하는 로직 작성해야함.
 

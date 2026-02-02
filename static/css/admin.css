@@ -900,73 +900,119 @@ p {
 
 /* 관리자 수정 모달 */
 .EditModal-Layout {
-    position: absolute;
+    position: fixed;
     display: flex;
     width: 100%;
     height: 100%;
     top: 0;
+    bottom: 0;
     left: 0;
+    right: 0;
+    align-items: center;
+    justify-content: center;
+    overscroll-behavior: none;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .EditModal-Wrapper {
     position: relative;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
 }
 
 .EditModal-Container {
     position: relative;
     display: flex;
-    align-items: flex-start;
-    width: 50%;
-    height: auto;
+    width: 640px;
+    max-width: 640px;
+    max-height: 90vh;
     top: 50%;
     left: 50%;
-    padding: 20px;
-    border-radius: 10px;
+    border-radius: 20px;
     background: white;
     transform: translate(-50%, -50%);
+    overflow: hidden;
+    
+    border: 1px solid #18253d0f;
+    box-shadow: 0px 4px 20px 0px #18253d0f;
 }
 
 .EditModal-Content {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: flex-end;
     width: 100%;
 }
 
 .EditModal-UpperContent {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    margin-top: 20px;
+    padding-inline: 12px;
     width: 100%;
-    gap: 10px;
+    height: 56px;
+    max-height: 56px;
+    min-height: 56px;
+    border-bottom: 1px solid #18253d0f;
 }
 
 .EditModal-MiddleContent {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
     width: 100%;
-    gap: 10px;
+    flex: 1;
+    overflow: auto;
+}
+
+.EditModal-MiddleWrapper {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    padding: 16px;
+    gap: 16px;
+    overflow-y: auto;
+    flex-direction: column;
+    align-items: center;
+    scrollbar-width: none;
 }
 
 .EditModal-BottomContent {
     display: flex;
-    justify-content: space-between;
-    margin-top: 30px;
     width: 100%;
     gap: 10px;
+    border-top: 1px solid #18253d0f;
+    padding: 16px;
+    justify-content: space-between;
+}
+
+.EditModal-TitleWrapper {
+    display: flex;
+    flex: 1 0 0;
+    align-items: center;
+    gap: 8px;
 }
 
 .EditModal-Title {
+    display: flex;
+    padding-left: 8px;
+    align-items: center;
+    gap: 8px;
+    color: #121314;
+    white-space: nowrap;
+    user-select: none;
     font-size: 20px;
     font-weight: 700;
     line-height: 16px;
     letter-spacing: -.48px;
+}
+
+.EditModal-ButtonWrapper {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    flex: 1 0 0;
+    align-items: center;
+    justify-content: flex-end;
+    min-width: 24px;
 }
 
 .EditModal-CloseButton {
@@ -976,46 +1022,207 @@ p {
     cursor: pointer;
 }
 
+.EditModal-SingleInput {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.EditModal-DoubleInput {
+    position: relative;
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    align-items: flex-end;
+}
+
 .EditModal-InputWrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 100%;
+    gap: 6px;
+    align-items: flex-start;
+}
+
+.EditModal-TimeInputWrapper {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    gap: 6px;
+    align-items: center;
 }
 
 .EditModal-InputLabel {
+    display: flex;
+    padding-inline: 8px;
+    align-items: center;
+}
+
+.EditModal-InputLabelText {
+    color: #121314;
+    letter-spacing: -.26px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+}
+
+.EditModal-InputContent {
+    display: flex;
+    flex-direction: row;
     width: 100%;
-    padding-bottom: 15px;
-    font-size: 18px;
-    font-weight: 700;
-    line-height: 16px;
-    letter-spacing: -.48px;
+    border: 1px solid #8c9fba1f;
+    border-radius: 12px;
+    background: #0000;
+    min-width: 32px;
+    min-height: 44px;
+    padding: 6px;
+    align-items: center;
 }
 
 .EditModal-Input {
-    border: 1px solid rgb(158, 158, 158);
-    width: 80%;
-    height: 35px;
-    border-radius: 5px;
+    position: relative;
+    display: flex;
+    width: 100%;
+    flex: 1 0 0;
+    padding: 8px;
+    border: none;
     outline: none;
-    padding: 0px 8px;
-    font-size: 18px;
+    height: 20px;
+    background-color: #0000;
+    cursor: inherit;
+
+    color: inherit;
+    letter-spacing: -.26px;
+    font-size: 13px;
     font-weight: 400;
-    line-height: 16px;
-    letter-spacing: -.48px;
+    line-height: 18px;
+}
+
+.EditModal-SelectContent {
+    position: relative;
+    display: flex;
+    width: 100%;
+    border: 1px solid #8c9fba1f;
+    border-radius: 12px;
+    padding: 6px 14px 6px 6px;
+    align-items: center;
     cursor: pointer;
 }
 
-.EditModal-Select {
-    width: 80%;
-    height: 35px;
-    border-radius: 5px;
-    outline: none;
-    padding: 0px 8px;
-    font-size: 18px;
-    font-weight: 400;
-    line-height: 16px;
-    letter-spacing: -.48px;
+.EditModal-SelectText {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex: 1 0 0;
+    gap: 6px;
+    min-width: 32px;
+    min-height: 30px;
+    align-items: center;
+    cursor: inherit;
+}
+
+.EditModal-SelectButton {
+    display: inline-flex;
+    color: #12131466;
+    align-items: center;
+    justify-content: center;
+    transition: transform .15s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    width: 24px;
+    height: 24px;
+    padding: 0px;
+    border-radius: 0px;
+    cursor: inherit;
+    mask: none;
+}
+
+.EditModal-SelectList {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+
+    top: 50px;
+    left: 0;
+    width: 300px;
+
+    background: white;
+    border: 1px solid #8c9fba1f;
+    border-radius: 16px;
+    box-shadow: 0px 4px 20px 0px #18253d0f;
+    transition: all .25s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-origin: center top;
+
+    z-index: 100;
+}
+
+.EditModal-OptionWrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.EditModal-Option {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: flex-start;
     cursor: pointer;
+    padding: 8px;
+}
+
+.EditModal-Option:hover {
+    border-radius: 12px;
+    background: rgb(229, 229, 229);
+}
+
+.EditModal-Option p {
+    color: #121314;
+    letter-spacing: -.26px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+.EditModal-TextareaWrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid #8c9fba1f;
+    border-radius: 12px;
+    min-width: 32px;
+    padding: 6px;
+    align-items: center;
+    background: #0000;
+}
+
+.EditModal-TextareaContent {
+    display: flex;
+    flex: 1 0 0;
+    width: 100%;
+    padding: 8px;
+    cursor: inherit;
+}
+
+.EditModal-Textarea {
+    width: 100%;
+    height: auto;
+    resize: none;
+    background-color: #0000;
+    max-height: 200px;
+    min-height: 76px;
+    outline: none;
+    border: none;
+    color: #121314;
+    letter-spacing: -.26px;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 18px;
 }
 
 .unable {
@@ -1067,6 +1274,28 @@ p {
 
 .Save:hover {
     background-color: rgb(255, 87, 87);
+    color: white;
+}
+
+.Denied {
+    border: 1px solid rgb(255, 87, 87);
+    color: rgb(255, 87, 87);
+    background: white;
+}
+
+.Denied:hover {
+    background-color: rgb(255, 87, 87);
+    color: white;
+}
+
+.Apply {
+    border: 1px solid rgb(138, 197, 255);
+    color: rgb(138, 197, 255);
+    background: white;
+}
+
+.Apply:hover {
+    background-color: rgb(138, 197, 255);
     color: white;
 }
 
